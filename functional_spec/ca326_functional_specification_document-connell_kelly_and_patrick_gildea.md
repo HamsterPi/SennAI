@@ -28,7 +28,9 @@ By Connell Kelly & Patrick Gildea
 
 **1. Introduction**
     _A Race in RLAI Racing_
+
 **1.1. Overview**
+
 RLAI Racing (Reinforcement Learning and Artificial Intelligence Racing)
 is an application designed to demonstrate reinforcement learning in an
 interactive format. It will feature a 2D, real-time, racing game
@@ -37,7 +39,9 @@ varying difficulties of an AI opponent. Reinforcement learning will be the
 dataset that is enforced. There is a distinct lack of interactive
 reinforcement learning demonstrations online and this project would lend
 itself to alleviating that.
+
 **1.2. Project Scope**
+
 The goal of this project is to create an environment that incorporates
 machine learning in the form of reinforcement learning. A software agent
 known as ​ **_‘SennAI’_** ​will be represented as a simple car and use this
@@ -58,50 +62,64 @@ learning within an interactive environment. RLAI Racing aims to be an
 example of the versatility and flexibility found in reinforcement learning
 and how it can be effectively applied to all manner of projects, from
 simple games to practical problem solvers.
+
 **1.3. Glossary**
 
 **1. Python:** High-level programming language used for primarily
     imperative-style programming, but can also be used for functional
     and object-oriented programming.
+    
 **2. OpenAI Gym:** Open-source toolkit for developing and comparing
     reinforcement learning algorithms. Created by the AI research
     company, OpenAI.
+    
 **3. Pygame:** Cross-platform collection of Python modules designed
     for writing and structuring video games.
+    
 **4. Artificial Intelligence:** Computer systems capable of performing
     tasks that would normally require human intelligence and
     perception.
+    
 **5. Machine Learning:** Algorithmic and statistical models
     incorporated by computer systems to fulfil through patterns and
     inference.
+    
 **6. Reinforcement Learning:** Subset of machine learning that trains
     algorithms using a system of reward and punishment.
+    
 **7. Dataset:** Collection of related and discrete items of related data
     that can be accessed individually or in combination.
 
-
-**8. Environment:** Set​ of processes and tools used to create the
+**8. Environment:** Set of processes and tools used to create the
     programs and scripts.
+    
 **9. Real-time:** Data being processed as fast as possible so feedback
     can be available immediately.
+    
 **10. Time to Finish (TTF):** The total amount of time it takes to
     complete three laps in RLAI Racing.
+    
 **11. Algorithm:** Sequence of instructions given to instruct a
     computer on how to complete a specific task.
+    
 **12. Softlock:** An event where triggers are reached in the wrong
     order or not at all and cause the programs script to break or halt
     completely.
 
-
 **2. General Description**
+
 2.1. Product/System Functions
+
 **2.1.1. User Access**
+
 To run the program, the user will need to have an up-to-date version of
 python installed. The user will then be required to download a zip file
 containing the program in a .py file along with a README document to
 provide any more explanations. Once extracted, the user will be able to
 run the program through the .py file.
+
 **2.1.2. Program Initialisation**
+
 The program will begin by loading and showing the user the main menu.
 The user can use keyboard inputs here to select between ‘Start Race’,
 ‘Train SennAI’, ‘View Leaderboard’ or ‘Exit Program’. By selecting ‘Start
@@ -115,7 +133,9 @@ selects ‘View Leaderboard’, they will be presented with the leaderboard
 containing developer TTF’s. As the user participates in more races with
 SennAI, each lap above a certain threshold will be added to the
 leaderboard to be viewed later.
+
 **2.1.3. Racing with SennAI**
+
 The race will begin with a three second countdown after which the cars
 can start moving. SennAI will be represented as a red rectangle and the
 user as a blue rectangle whose forward directions are to their rightmost
@@ -125,13 +145,12 @@ right with the right button and brake and reverse with the down button.
 The user will be expected to navigate a rectangular racetrack as quickly
 as possible, speeding up on the straights and slowing down to handle
 the turns. Driving off the racetrack will slow down the user’s car and
-
-
 hamper their overall TTF. When the user passes the checkered finish
 line three times, their car will vanish and their laps will be recorded.
 Unless SennAI managed to complete it’s laps beforehand, the racetrack
 will remain until SennAI finishes it’s laps. Once finished, both TTF’s are
 recorded.
+
 The view of the racetrack will be fixed and overlooking every tile of
 visible area, referred to as the game field. The game field will be
 designed using a unique module provided by OpenAI called Box2D.
@@ -140,6 +159,7 @@ represent the racetrack and cars. Various utilities from Gym itself will
 also be incorporated. Any other important modules such as sys and
 math will be imported and used whenever necessary for various
 algorithms.
+
 The user and SennAI will not have collision, instead passing through one
 another if they come to close. There will be an interpreter in place,
 analysing each and every frame of SennAI’s movement and how it will
@@ -149,7 +169,9 @@ SennAI if it leaves the track for too long. SennAI will be removed and the
 race will end when all tiles have been visited and the user has finished.
 Train SennAI’ will also be available to improve SennAI’s proficiency on
 the track with the same parameters and rules in place.
+
 **2.1.4. Checkered Flag**
+
 Once the race has ended after the user and SennAI have finished, the
 user will be returned to the leaderboard where their TTF’s are recorded.
 Afterwards the user will be returned to the main menu. Since the
@@ -158,13 +180,14 @@ how many points SennAI should be awarded. Every frame will be
 counted and calculated (1000/tiles - 0.1 * frames) with every tile that
 SennAI visits and it will be cumulatively rewarded appropriately for it’s
 performance. This also applies to any races had in ‘Train SennAI’.
-2.2. User Characteristics and Objectives
 
+2.2. User Characteristics and Objectives
 
 Users are expected to know how to use their operating system of choice,
 how to extract a zip file and how to run a python program in terminal.
 User’s will also be expected to be tactile enough to adequately compete
 in the race itself.
+
 From the user’s point of view, the program will present them with the
 opportunity to compete in a race with a constantly improving AI opponent
 named SennAI. The user will be able to choose whether they want to
@@ -174,6 +197,7 @@ the choice of resetting SennAI’s progress whenever they want through
 the ‘Options’ button on the taskbar. While training TTF’s won’t be
 counted on the leaderboard, normal race TTF’s will be and the user and
 SennAI’s times will be compiled there.
+
 The UI will be clear for the user to understand with whatever option
 that’s currently selected will be highlighted to prevent any confusion or
 accidental exits. This is important given that a user could lose all their
@@ -181,11 +205,15 @@ progress with SennAI if the menu isn’t clear enough.
 Our goal is to demonstrate reinforcement learning to the user and teach
 them about it’s functionality and versatility. Ideally it will be an intuitive
 user experience if we can fulfil all our goals.
+
 **Wishlist:**
+
 ● An informative main menu that highlights each option selected and
 provides a description of it’s function.
+
 ● Implementing a speedup feature for ‘Train SennAI’ to bring SennAI
 to a legitimate level of proficiency sooner.
+
 ● Adding a way of watching multiple previous generations of SennAI
 race at once in ‘Train SennAI’.
 2.3 Operational Scenarios
@@ -207,10 +235,12 @@ leaderboard where they can check if any TTF’s from the race have
 made it on. From here they can exit back to the main menu and
 then exit the game.
 ```
+
 2. A user is presented with the main menu and chooses the
     leaderboard, here they see the developer TTFs along with any
     TFF’s by themselves or SennAI if they have raced already. They
     can exit back to the main menu and then exit the game.
+
 3. A user is presented with the main menu and they choose ‘Train
     SennAI’. From here they see a new generation of SennAI begin
     attempt to complete a lap on the track. They are presented with
@@ -229,7 +259,9 @@ then exit the game.
 
 
 2.4 Constraints
+
 **2.4.1 Experience**
+
 Despite fascination and interest in the topic, but our lack of experience in
 the field of machine learning will make development more challenging as
 we get to grips with reinforcement learning’s concepts. It will be a
@@ -237,15 +269,21 @@ learning process as we get to know a toolkit that we’re unfamiliar with
 like OpenAI Gym and understand modules we’re minimally familiar with
 from Pygame. Working closely with other projects that are related to ours
 should prove helpful.
+
 **2.4.2 Time Shortage**
+
 This project has a short window of time to be developed. This may end
 up limiting the amount of features and polish that could be implemented
 with more time.
+
 **2.4.3 Memory Issues**
+
 Reinforcement learning can be a very taxing process due to the
 numerous calculations that are undertaken. An adequate GPU may need
 to be sought out to help handle the issue.
+
 **2.4.3 Visual Problems**
+
 Unfamiliarity with professional game design may make designing the
 racetrack and driving properties difficult. We must take care in making
 sure RLAI Racing is easy to understand, but also visually detailed show
@@ -253,8 +291,11 @@ off the programs full functionality.
 
 
 **3. Functional Requirements**
+
 3.1. Software Agent & R.L.
+
 **Description**
+
 SennAI is the core of the project and its effective functionality is
 paramount to its overall goal of demonstrating reinforcement learning.
 It’s goal is to be rewarded with an appropriate
@@ -268,7 +309,9 @@ incorporating an effective reinforcement
 learning algorithm. This will analyse SennAI’s
 movement in conjunction with the amount of
 frames it takes for it to complete a lap.
+
 **Criticality (HIGH)**
+
 The crux of this project relies on SennAI’s potential
 of becoming a legitimate opponent on the programs racetrack. It’s
 functionality is core to its ability to improve in ‘Train SennAI’, it’s
@@ -276,12 +319,15 @@ competitiveness in normal races and its ability to record laps to the
 leaderboard. Vital parameters must be in place to prevent any bugs such
 as SennAI being unable to finish a race. Otherwise this could result in
 the program being softlocked.
+
 **Technical Problems**
+
 There are several possible issues that can arrive with SennAI’s
 development. Being relatively new to machine learning development will
 lead trial and error where some bugs may appear. Effective machine
 learning algorithms can also be very taxing in terms of computability and
 complexibility and managing this could become an issue.
+
 **Dependence On Other Requirements**
 
 
@@ -291,18 +337,23 @@ legitimate game field to identify tiles. These tiles will be an important
 variable in reinforcement learning algorithms determining a reward or
 lack there-of for SennAI after a successful lap.
 3.2. Game Field
+
 **Description**
+
 To allow for the game to execute correctly, the game field needs to be
 adequately tuned to provide a fair and optimal design and ruleset for the
 user and SennAI to compete in. This requirement will allow for the
 design of the racetrack, the grass field surrounding the track and the
 correct triggers in place to notify SennAI when it’s on and off the track.
+
 **Criticality (HIGH)**
+
 This requirement is the visual foundation of the program and its effective
 implementation is not only important for the SennAI to function in, but for
 the user to comprehend what’s occurring. The game field will be made
 up tiles and these tiles are vital to giving SennAI the ability to gauge how
 well it is doing and how it will be rewarded for its performance.
+
 **Technical Problems**
 Designing a track that takes full advantage of each agent’s capabilities
 will be difficult, but simplicity would be key in observing SennAI’s
@@ -519,5 +570,3 @@ https://gym.openai.com/
 https://www.pygame.org/news
 7.1. Wiki for Reinforcement Learning:
 https://pathmind.com/wiki/deep-reinforcement-learning
-
-
