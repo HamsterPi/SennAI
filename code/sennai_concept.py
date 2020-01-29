@@ -1,5 +1,3 @@
-
-
 #track boundaries
 
 #grass slows
@@ -98,8 +96,8 @@ def game_loop():
  
     while run:
         #diagnostics
-        #print(car.position)
-       #print(car.speed)
+        print(car.position)
+        print(car.speed)
         #print(car.direction) #direction car is facing in (will drive in direction facing)
         #print(car.left)
         #print(car.right)
@@ -120,10 +118,10 @@ def game_loop():
             down = event.type == KEYDOWN
 
 
-            if event.key == K_d:
+            if event.key == K_d and car.speed != 0:
                 car.k_right = down * -5
 
-            elif event.key == K_a:
+            elif event.key == K_a and car.speed != 0:
                 car.k_left = down * 5
 
             elif event.key == K_w:
