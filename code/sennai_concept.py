@@ -8,7 +8,6 @@
 
 #menu system
 
-
 import pygame, math, sys, random
 from pygame.locals import *
 
@@ -31,8 +30,8 @@ class Entity(pygame.sprite.Sprite):
 
 class VehicleSprite(Entity):
     # Creates a vehicle class
-    MAX_FORWARD_SPEED = 5
-    MAX_REVERSE_SPEED = 1
+    MAX_FORWARD_SPEED = 10
+    MAX_REVERSE_SPEED = 3
     ACCELERATION = 0.05
     TURN_SPEED = 0.000000000001
 
@@ -86,12 +85,12 @@ rect = screen.get_rect()
 BackGround = Background('track1.png', [0, 0])
 
 # Car image load
-car = VehicleSprite('car.png',rect.midtop)
+car = VehicleSprite('car_red_small.png',rect.midtop)
 car_group = pygame.sprite.RenderPlain(car)
 
 # Main game loop
 
-def game_loop():
+def gameLoop():
     run = True
  
     while run:
@@ -113,10 +112,8 @@ def game_loop():
 
             if not hasattr(event, 'key'):
                 continue
-            
 
             down = event.type == KEYDOWN
-
 
             if event.key == K_d and car.speed != 0:
                 car.k_right = down * -5
@@ -125,11 +122,10 @@ def game_loop():
                 car.k_left = down * 5
 
             elif event.key == K_w:
-                car.k_up = down * 2
+                car.k_up = down * 0.5
 
             elif event.key == K_s:
-                car.k_down = down * -2
-
+                car.k_down = down * -0.5
 
         # Game background
         screen.fill(white)
@@ -141,7 +137,6 @@ def game_loop():
 
         pygame.display.flip()
 
-
-game_loop()
+gameLoop()
 pygame.quit()
 quit()
