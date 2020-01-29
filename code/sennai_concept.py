@@ -1,8 +1,14 @@
+
+
 #track boundaries
+
 #grass slows
 
 #no tank turning (if still can't turn)
+
 #car doesn't move unless you hold forwards
+
+#menu system
 
 
 import pygame, math, sys, random
@@ -37,9 +43,13 @@ class VehicleSprite(Entity):
 
         # Creates object instance off
         pygame.sprite.Sprite.__init__(self)
+
         self.src_image = pygame.image.load(image)
-        self.position = position
-        self.speed = self.direction = 0
+        #self.angle = 90
+       # self.src_image = pygame.transform.rotate(self.src_image, self.angle)
+        self.position = 420,70 #choose start position of the car
+        self.speed = 0
+        self.direction = 270 #direction car is facing in (will drive in direction facing)
         self.k_left = 0
         self.k_right = 0
         self.k_down = 0
@@ -73,18 +83,28 @@ class Background(pygame.sprite.Sprite):
         self.rect.left, self.rect.top = location
 
 rect = screen.get_rect()
+
 # Background
 BackGround = Background('track1.png', [0, 0])
 
 # Car image load
-car = VehicleSprite('car_red_small.png', rect.midtop) #get on track at start line
+car = VehicleSprite('car.png',rect.midtop)
 car_group = pygame.sprite.RenderPlain(car)
 
 # Main game loop
 
 def game_loop():
     run = True
+ 
     while run:
+        #diagnostics
+        #print(car.position)
+       #print(car.speed)
+        #print(car.direction) #direction car is facing in (will drive in direction facing)
+        #print(car.left)
+        #print(car.right)
+        #print(car.up)
+        #print(car.down)
         #USER INPUT
         # Sets frame rate
         time = clock.tick(60)
@@ -93,7 +113,10 @@ def game_loop():
             if event.type == pygame.QUIT:
                 run = False
 
-            if not hasattr(event, 'key'): continue
+            if not hasattr(event, 'key'):
+                continue
+            
+
             down = event.type == KEYDOWN
 
 
@@ -107,12 +130,8 @@ def game_loop():
                 car.k_up = down * 2
 
             elif event.key == K_s:
-                car.k_down = down * -2      
+                car.k_down = down * -2
 
-            # Quit
-            ##elif event.key == K_ESCAPE: sys.exit(0)
-
-        #RENDERING
 
         # Game background
         screen.fill(white)
