@@ -1,11 +1,10 @@
+# Priorities:
+# - Grass slows
+# - Resets if you go outofbounds (IP)
+# - Incremental acceleration
+# - Car doesn't move unless you hold forwards
 
-
-#grass slows
-#resets if you go outofbounds (IP)
-#incremental acceleration
-#car doesn't move unless you hold forwards
-
-#menu system
+# Menu system
 
 
 import pygame, math, sys, random
@@ -43,9 +42,9 @@ class VehicleSprite(Entity):
 
         self.src_image = pygame.image.load(image)
 
-        self.position = 420,70 #choose start position of the car
+        self.position = 420,70 # Choose start position of the car
         self.speed = 0
-        self.direction = 270 #direction car is facing in (will drive in direction facing)
+        self.direction = 270 # Direction car is facing in (will drive in direction facing)
         self.k_left = 0
         self.k_right = 0
         self.k_down = 0
@@ -70,7 +69,7 @@ class VehicleSprite(Entity):
         self.rect = self.image.get_rect()
         self.rect.center = self.position
 
-    def outofbounds(self, position): #resets to original state
+    def outofbounds(self, position): # Resets to original state
         if self.position[0] > 840 or self.position[0] < 1 or self.position[1] > 521 or self.position[1] < 1:     
             self.position = 420, 70
             self.direction = 270
@@ -82,7 +81,7 @@ class VehicleSprite(Entity):
 
 class Background(pygame.sprite.Sprite):
     def __init__(self, image_file, location):
-        pygame.sprite.Sprite.__init__(self)  #call Sprite initializer
+        pygame.sprite.Sprite.__init__(self)  # Call Sprite initializer
         self.image = pygame.image.load(image_file)
         self.rect = self.image.get_rect()
         self.rect.left, self.rect.top = location
@@ -102,11 +101,11 @@ def game_loop():
     run = True
  
     while run:
-        #diagnostics
+        # Various Diagnostics for Car Details
         print()
         print("position",car.position)
         print("speed",car.speed)
-        print("direction",car.direction) #needs to reset at 0/360
+        print("direction",car.direction) # Needs to reset at 0/360
         print("left",car.k_left)
         print("right",car.k_right)
         print("forwards",car.k_up)
@@ -136,14 +135,9 @@ def game_loop():
 #
             elif event.key == K_s:
                 car.k_down = down * -2
-    
-            car.outofbounds(car.position) #resets to start line if car goes out of bounds, currently doesn't work until a key is pressed after going  out of bounds
-
-
-
-
-    
-
+            
+            # Resets to start line if car goes out of bounds, currently doesn't work until a key is pressed after going  out of bounds
+            car.outofbounds(car.position)
 
         # Game background
         screen.fill(white)
