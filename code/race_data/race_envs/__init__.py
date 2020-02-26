@@ -1,2 +1,2 @@
-from race_data.race_environs.Race_Env import *
-from race_data.race_environs.SennAI_2D import SennAI2D
+from race_data.race_envs.Race_Env import *
+from race_data.race_envs.SennAI_2D import SennAI2D
