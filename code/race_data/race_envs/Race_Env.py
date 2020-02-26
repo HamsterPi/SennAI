@@ -1,5 +1,5 @@
 import numpy as np
-from race_data.race_environs.SennAI_Base import SennAI2D
+from race_data.race_envs.SennAI_Base import SennAI2D
 import gym
 from gym import spaces
 
