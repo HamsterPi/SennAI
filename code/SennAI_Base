@@ -7,7 +7,7 @@ class Measure:
         self.screen_width = 2000
         self.screen_height = 1100
         # Checkpoint locations (ALTERED FOR map3)
-        self.check_point = ((1420, 225), (1420, 805), (810, 860), (190, 805), (190, 190), (810, 180))
+        self.check_point = ((1420, 225), (1420, 805), (235, 805), (230, 230), (810, 180))
 
 class Car:
     def __init__(self, car_image, track_image, car_position):
