@@ -6,7 +6,7 @@ class Measure:
         # Screen dimensions
         self.screen_width = 2000
         self.screen_height = 1100
-        # Checkpoint locations (ALTERED FOR map3)
+        # Checkpoint locations
         self.check_point = ((1420, 225), (1420, 805), (235, 805), (230, 230), (810, 180))
 
 class Car:
@@ -51,24 +51,23 @@ class Car:
         # Loads new image of track and create surface object
         self.track = pygame.image.load(track_image)
         
-        # Constantly observe checkpoint locations
         for s in range(-90, 120, 45):
             self.detect_radar(s)
-
+    
+    # Determine if car has collided with the edge of the track
     def detect_collision(self):
         self.is_alive = True
-        # (ALTERED FOR map3)
         for point in self.all_points:
             if self.track.get_at((int(point[0]), int(point[1]))) == (77, 153, 0, 255):
                 self.is_alive = False
                 break
 
+    # Determine lidar positions based on  the edge of the track
     def detect_radar(self, degree):
         len = 0
         x_coord = int(self.center[0] + math.cos(math.radians(360 - (self.angle + degree))) * len)
         y_coord = int(self.center[1] + math.sin(math.radians(360 - (self.angle + degree))) * len)
 
-        # (ALTERED FOR map3)
         while not self.track.get_at((x_coord, y_coord)) == (77, 153, 0, 255) and len < 200:
             len = len + 1
             x_coord = int(self.center[0] + math.cos(math.radians(360 - (self.angle + degree))) * len)
@@ -77,6 +76,7 @@ class Car:
         distance = int(math.sqrt(math.pow(x_coord - self.center[0], 2) + math.pow(y_coord - self.center[1], 2)))
         self.radar_list.append([(x_coord, y_coord), distance])
 
+    # Determine if the car has reached a predefined checkpoint location
     def detect_checkpoint(self):
         point = self.measure.check_point[self.current_check]
         self.prev_distance = self.cur_distance
@@ -93,13 +93,15 @@ class Car:
 
         self.cur_distance = distance
 
-    # Draws one image onto another, in this case the car's positionition and rotation
+    # Draws one image onto another, in this case the car's position and rotation
     def draw(self, screen):
         screen.blit(self.rotate_surface, self.position)
     
+    # Calculate the distance between two specified points on the track
     def get_distance(self, point1, point2):
         return math.sqrt(math.pow((point1[0] - point2[0]), 2) + math.pow((point1[1] - point2[1]), 2))
 
+    # Allow for centralised rotation of the car
     def rotate_center(self, image, angle):
         self.og_rect = image.get_rect()
         self.rotate_image = pygame.transform.rotate(image, angle)
@@ -108,15 +110,16 @@ class Car:
         self.rotate_image = self.rotate_image.subsurface(self.rotate_rect).copy()
         return self.rotate_image
 
+    # Update various parts of the car as it moves through the track
     def update(self):
-        #check speed
+        # Check speed
         self.speed -= 0.5
         if self.speed > 10:
             self.speed = 10
         if self.speed < 1:
             self.speed = 1
 
-        #check positionition
+        # Check positionition
         self.rotate_surface = self.rotate_center(self.surface, self.angle)
         self.position[0] += math.cos(math.radians(360 - self.angle)) * self.speed
         if self.position[0] < 20:
@@ -132,7 +135,7 @@ class Car:
         elif self.position[1] > self.measure.screen_height - 120:
             self.position[1] = self.measure.screen_height - 120
 
-        # caculate 4 collision points
+        # Caculate 4 collision points
         self.center = [int(self.position[0]) + 50, int(self.position[1]) + 50]
         len = 40
         top_left = [self.center[0] + math.cos(math.radians(360 - (self.angle + 30))) * len, self.center[1] + math.sin(math.radians(360 - (self.angle + 30))) * len]
