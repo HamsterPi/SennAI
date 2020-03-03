@@ -4,10 +4,10 @@ import pygame
 class Measure:
     def __init__(self):
         # Screen dimensions
-        self.screen_width = 2000
-        self.screen_height = 1100
+        self.screen_width = 1680
+        self.screen_height = 1000
         # Checkpoint locations
-        self.check_point = ((1420, 225), (1420, 805), (235, 805), (230, 230), (810, 180))
+        self.check_point = ((1440, 210), (1440, 790), (235, 790), (230, 230), (810, 180))
 
 class Car:
     def __init__(self, car_image, track_image, car_position):
