@@ -1,5 +1,7 @@
 * * * * *
 
+* * * * *
+
 CA326
 
 **Software Requirements Specifications**
@@ -12,50 +14,64 @@ For SennAI by Connell Kelly & Patrick Gildea (01/03/2020)
 
 **Table of Contents**
 
-    Title:                                                              Page:
+    Title:                                                          Page:
     1\. Introduction
 
-    - 1.1. Overview                                                     2
+    - 1.1. Purpose                                                      2
 
-    - 1.2. Project Scope                                                2
+    - 1.2. Intended Audience & Reading Suggestions                      2
 
-    - 1.3. Glossary                                                     3
+    - 1.3. Product Scope                                                2
+    
+    - 1.4. References                                                   3
 
-    2\. General Description
+    2\. Overall Perspective
 
-    - 2.1. Product/System Functions                                     5
+    - 2.1. Product Perspective                                          3
 
-    - 2.2. User Characteristics and Objectives                          7
+    - 2.2. Prodcut Functions                                            4
 
-    - 2.3. Operational Scenarios                                        8
+    - 2.3. User Classes and Characteristics                             4
 
-    - 2.4. Constraints                                                  9
+    - 2.4. Operating Environment                                        4
+    
+    - 2.5. Design and Implementation Constraints                        5
+    
+    - 2.6. User Documentation                                           5
+    
+    - 2.7. Assumptions and Dependencies                                 5
 
-    3\. Functional Requirements
+    3\. External Interface Requirements
 
-    - 3.1. Software Agent & R.L.                                        10
+    - 3.1. User Interfaces                                              6
 
-    - 3.2. Game Field                                                   11
+    - 3.2. Hardware Interfaces                                          6
 
-    - 3.3. Race Ruleset                                                 12
+    - 3.3. Software Interfaces                                          6
 
-    - 3.4. Interface Requirements                                       13
+    - 3.4. Communications Interfaces                                    6
 
-    - 3.5. User Control                                                 14
+    4\. System Architecture                                             
 
-    - 3.6. Leaderboard                                                  15
+    - 4.1. Play Mode                                                    7
 
-    4\. System Architecture                                             16
+    - 4.2. Train Mode                                                   7
 
-    5\. High-Level Design
+    - 4.3. Leaderboard Mode                                             8
 
-    - 5.1. Context Diagram                                              17
+    5\. Other Nonfunctional Requirements
 
-    - 5.2. Data Flow Diagram Diagram                                    18
+    - 5.1. Performance Requirements                                     8
 
-    6\. Preliminary Schedule                                            19
+    - 5.2. Safety Requirements                                          9
+    
+    - 5.3. Security Requirements                                        9
+    
+    - 5.4. Software Quality Attributes                                  9
+    
+    - 5.5. Business Rules                                               10
 
-    7\. Appendices                                                      22
+    7\. Appendices                                                      10
 
 * * * * *
 
@@ -111,7 +127,7 @@ SennAI is a new, self-contained product dedicated to effectively demonstrating t
 
 SennAI Static Component Diagram
 
-2.2 Product Perspective
+2.2 Product Functions
 -----------------------
 
 Major functions of SennAI include:
