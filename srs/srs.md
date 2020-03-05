@@ -1,6 +1,7 @@
 * * * * *
 
 CA326
+==================
 
 **Software Requirements Specifications**
 
@@ -10,6 +11,7 @@ For SennAI by Connell Kelly & Patrick Gildea (01/03/2020)
 
 Table of Contents:
 ==================
+
 
 1\. Introduction
 ================
