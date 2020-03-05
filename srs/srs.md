@@ -1,17 +1,63 @@
 * * * * *
 
 CA326
------------
 
 **Software Requirements Specifications**
-==================
 
 For SennAI by Connell Kelly & Patrick Gildea (01/03/2020)
 
 * * * * *
 
-Table of Contents:
-==================
+* * * * *
+
+**Table of Contents**
+
+    Title:                                                              Page:
+    1\. Introduction
+
+    - 1.1. Overview                                                     2
+
+    - 1.2. Project Scope                                                2
+
+    - 1.3. Glossary                                                     3
+
+    2\. General Description
+
+    - 2.1. Product/System Functions                                     5
+
+    - 2.2. User Characteristics and Objectives                          7
+
+    - 2.3. Operational Scenarios                                        8
+
+    - 2.4. Constraints                                                  9
+
+    3\. Functional Requirements
+
+    - 3.1. Software Agent & R.L.                                        10
+
+    - 3.2. Game Field                                                   11
+
+    - 3.3. Race Ruleset                                                 12
+
+    - 3.4. Interface Requirements                                       13
+
+    - 3.5. User Control                                                 14
+
+    - 3.6. Leaderboard                                                  15
+
+    4\. System Architecture                                             16
+
+    5\. High-Level Design
+
+    - 5.1. Context Diagram                                              17
+
+    - 5.2. Data Flow Diagram Diagram                                    18
+
+    6\. Preliminary Schedule                                            19
+
+    7\. Appendices                                                      22
+
+* * * * *
 
 
 1\. Introduction
