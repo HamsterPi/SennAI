@@ -97,6 +97,8 @@ Once all instructions have been followed in the instructions manual provided in 
 2.2 Mode Selection
 ------------------
 
+![](https://lh4.googleusercontent.com/OBIzsHdB6Bgdnfxwx26CO0Up0ztISCW98TVjOUx7mFj2vSYe9Q-astI0MtdA5SVXH_mWFCMaZexIWRr8CrA59t4syP3JtwGGBdXHaj9dWqd6VxDAHwI30NoehlFOeU_TPoJFBEto)
+
 Once the program begins, the user will be presented with the menu where they can select one of four options:
 
 -   Play - Select the difficulty of AI agent and compete with them on a 2D race track to complete a lap the fastest without driving of course.
@@ -114,6 +116,8 @@ All selected modes (except 'Quit') can be exited from back to the menu by select
 
 ### 2.3.1 'Play' Mode
 
+![](https://lh6.googleusercontent.com/MW8bnYpH4qhH_-D2XgTGnILk3d1csK8q_zVa-N_0GCBp7RrSzCjbAX5uIKoDMpSIOgF41pxK-5i5nB0o9yo0UYAHRDp2HuU9Lczc7XaDUq5FYLfGHThB_RkiiYS-BLKT2sVBdaHq)
+
 1.  Select 'Play' in the main menu, allowing you to choose from two  difficulties of an AI opponent.
 
 2.  Initiate race and wait approximately 33 seconds to load the data required for the AI agent and the window will open.
@@ -127,6 +131,8 @@ All selected modes (except 'Quit') can be exited from back to the menu by select
 **Lose Condition: The SennAI agent completes a lap before the user does or the user collides with the grass.**
 
 ### 2.3.2 'Train' Mode
+
+￼![](https://lh4.googleusercontent.com/K9vizoKcXWItDPDRjLwZqJMHRLFjt68mJ7XKHFSCIShm_kXnFyeW2xtxVLdzBQ6Nr_6dpuvRxWiBB-dICj0k34kHUqytZoweoWeNFnj0BiPE8QP8gdZL1tKwAk_5y8mSnfr3xuLv)
 
 1.  Select 'Train' in the main menu, allowing you to choose from various generation levels of an AI opponent between 0 and 10,000.
 
