@@ -62,6 +62,8 @@ There are several concepts expressed in the project that a new user may be unfam
 
 **Numpy (.npy):** A general-purpose array-processing package.
 
+**PyGame Menu:** Collection of python modules for developing menus
+
 1.3 Controls
 ------------
 
