@@ -1,6 +1,7 @@
 SennAI - Test Log
+=======
 
-CA326 Project by Connell Kelly and Patrick Gildea
+**CA326 Project by Connell Kelly and Patrick Gildea**
 
 Welcome to the SennAI Test Log where we have recorded all relevant test notes in relation to this project's development. We have done a number of different tests throughout development and we will go over some examples here.
 
