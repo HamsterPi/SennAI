@@ -45,21 +45,21 @@ Welcome to the SennAI user manual! This document will provide every piece of nec
 
 There are several concepts expressed in the project that a new user may be unfamiliar with, especially if unaccustomed to machine learning. Here's a short glossary of relevant terms:
 
-Menu: Window in program where the user can select what mode that they would like to operate in.
+**Menu:** Window in program where the user can select what mode that they would like to operate in.
 
-Checkpoint: Visible/Invisible points of reference for the program to record the progress of the user or AI agent's car.
+**Checkpoint:** Visible/Invisible points of reference for the program to record the progress of the user or AI agent's car.
 
-Lidar: A detection system which works on the principle of radar, but uses light from a laser. Detects specific colours in this program.
+**Lidar:** A detection system which works on the principle of radar, but uses light from a laser. Detects specific colours in this program.
 
-Reinforcement Learning: An area of machine learning about taking suitable action to maximize reward in a particular situation. It is employed by various software and machines to find the best possible behavior or path it should take in a specific situation.
+**Reinforcement Learning:** An area of machine learning about taking suitable action to maximize reward in a particular situation. It is employed by various software and machines to find the best possible behavior or path it should take in a specific situation.
 
-Q-Learning: A model-free, value-based, reinforcement learning algorithm which is used to find the optimal action-selection policy using a Q function.
+**Q-Learning:** A model-free, value-based, reinforcement learning algorithm which is used to find the optimal action-selection policy using a Q function.
 
-OpenAI Gym: An open-source toolkit for developing and comparing reinforcement learning algorithms.
+**OpenAI Gym:** An open-source toolkit for developing and comparing reinforcement learning algorithms.
 
-PyGame: A cross-platform set of Python modules designed for writing video games.
+**PyGame:** A cross-platform set of Python modules designed for writing video games.
 
-Numpy (.npy): A general-purpose array-processing package.
+**Numpy (.npy):** A general-purpose array-processing package.
 
 1.3 Controls
 ------------
@@ -136,7 +136,7 @@ Lose Condition: The SennAI agent completes a lap before the user does or the use
 
 4.  This process will proceed until the user exits the window and returns to the window.
 
-There are no win or lose cases here as trial and error is necessary for Q-Learning.
+****There are no win or lose cases here as trial and error is necessary for Q-Learning.**
 
 ### 2.3.3 'Leaderboard' Mode
 
@@ -144,7 +144,7 @@ There are no win or lose cases here as trial and error is necessary for Q-Learni
 
 2.  Whenever you're done observing completed lap times, select the back button to return to the menu.
 
-There are no win or lose cases here.
+**There are no win or lose cases here.**
 
 3\. Conclusion
 ==============
