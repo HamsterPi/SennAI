@@ -122,9 +122,9 @@ All selected modes (except 'Quit') can be exited from back to the menu by select
 
 4.  When a condition is met, the window will close and the user will be notified of the outcome and returned to the menu.
 
-Win Condition: Complete a lap of the racetrack before the SennAI agent does or SennAI collides with the grass.
+**Win Condition: Complete a lap of the racetrack before the SennAI agent does or SennAI collides with the grass.**
 
-Lose Condition: The SennAI agent completes a lap before the user does or the user collides with the grass.
+**Lose Condition: The SennAI agent completes a lap before the user does or the user collides with the grass.**
 
 ### 2.3.2 'Train' Mode
 
@@ -136,7 +136,7 @@ Lose Condition: The SennAI agent completes a lap before the user does or the use
 
 4.  This process will proceed until the user exits the window and returns to the window.
 
-****There are no win or lose cases here as trial and error is necessary for Q-Learning.**
+**There are no win or lose cases here as trial and error is necessary for Q-Learning.**
 
 ### 2.3.3 'Leaderboard' Mode
 
