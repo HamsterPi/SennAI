@@ -30,7 +30,7 @@ CA326 Project by Connell Kelly and Patrick Gildea
 
     - 2.3 Program Operation                                     4
 
-    3\. External Interface Requirements                         5
+    3\. Conclusion                                              5
 
 
 1\. Introduction
