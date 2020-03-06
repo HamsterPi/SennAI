@@ -11,7 +11,6 @@ CA326 Project by Connell Kelly and Patrick Gildea
 * * * * *
 
 **Table of Contents**
-==================
 
 Title:                                                      Page:
     1\. Introduction
