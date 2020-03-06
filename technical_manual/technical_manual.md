@@ -1,6 +1,6 @@
 ![](https://lh3.googleusercontent.com/8TlSVNKd3qhepP0v-Uk2fSnpO7MIU16-h-8feKt-doAqfXKWOORL0A-MVBzpOCZmToXVi-99qGk8Qh_BXWuW8Xgb6-TlOrqbIC-JLkEu-Mj2qK8URRVU6zN4VZ7vCehjXxuN8B4h)
 
-SennAI - User Manual
+SennAI - Technical Manual
 
 CA326 Project by Connell Kelly & Patrick Gildea
 
