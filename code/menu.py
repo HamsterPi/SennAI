@@ -10,6 +10,8 @@ import math
 import random
 import gym
 import race_data
+import re
+from race_data.race_environs.unocar.onecar import *
 
 #Constants and global variables
 leaderboard = []
@@ -27,8 +29,6 @@ COLOUR_WHITE = (255, 255, 255)
 #toggles
 DIFFICULTY = ['EASY']
 GENERATION = [0]
-LIDAR = ['OFF']
-CHECKPOINTS = ['OFF']
 
 #Frames per second of game
 FPS = 60.0
@@ -57,9 +57,12 @@ NUM_ACTIONS2 = env2.act_space2.n
 STATE_BOUNDS2 = list(zip(env2.obs_space2.low, env2.obs_space2.high))
 
 #q-tables saved at relevant generations which are loaded as difficulties in play mode, at 5000 will crash and move slowly 
-easy = '5000_aft.npy'
+#easy = '5000_aft.npy'
 #at 10000 more consistent and faster
-normal = '10000_aft.npy'
+#normal = '10000_aft.npy'
+
+easy = '10000_aft.npy'
+normal = '15000_aft.npy'
 
 #lowest explore rate will ever drop to
 MIN_EXPLORE_RATE = 0.001
@@ -87,15 +90,6 @@ def change_gentotrainto(value, gentotrainto):
     print('Selected Gentotrainto: "{0}" ({1}) at index {2}'.format(selected, gentotrainto, index))
     GENERATION[0] = gentotrainto
 
-def change_lidar(value, Lidar):
-    selected, index = value
-    print('Selected Lidar: "{0}" ({1}) at index {2}'.format(selected, Lidar, index))
-    LIDAR[0] = Lidar
-
-def change_checkpoints(value, checkpoints):
-    selected, index = value
-    print('Selected Checkpoints: "{0}" ({1}) at index {2}'.format(selected, checkpoints, index))
-    CHECKPOINTS[0] = checkpoints
 
 def play_function(difficulty, font, test=False):
 
@@ -294,16 +288,20 @@ def main():
                                      window_height=WINDOW_SIZE[1],
                                      window_width=WINDOW_SIZE[0]
                                      )
-    #put times on leaderboard, prints the top 5 times
+
+
+    #FIX
+    #leaderboard prior was only printing the first five times ever recorded, now wil display the top
+    #five times
     i = 0
-    for l in leaderboard:
+    #sort last digits of a string
+    for l in sorted(leaderboard, key=lambda x: int(re.search(r'\d+$',x).group())):
         if i == 5:
             break
         leaderboard_menu.add_line(l)
         i += 1
 
     leaderboard_menu.add_line(pygameMenu.locals.TEXT_NEWLINE)
-
     leaderboard_menu.add_option('Return to menu', pygameMenu.events.BACK)
 
 
@@ -360,16 +358,6 @@ def main():
                            onchange=change_gentotrainto,
                            selector_id='select_gentotrainto')
 
-    ##################### get these to work
-    train_menu.add_selector('Checkpoints',
-                           [('OFF', 'OFF'),('ON', 'ON')],
-                           onchange=change_checkpoints,
-                           selector_id='checkpoints_onoff')
-
-    train_menu.add_selector('Lidar',
-                            [('OFF', 'OFF'),('ON', 'ON')],
-                           onchange=change_lidar,
-                           selector_id='Lidar_onoff')
 
 
 
@@ -443,71 +431,55 @@ def main():
 
 #used by the training function, to train the AI from scratch
 def simulate(generation): 
-
-    #retrieves learning rate for the ai
+    #retrieves initial learning rate for the ai (first gen)
     learning_rate = get_learning_rate(0)
-    #retrieves explore rate for the ai
+    #retrieves initial explore rate for the ai (first gen)
     explore_rate = get_explore_rate(0)
-
-    #discount factor is set to a constant 0.99
+    #discount factor is set to a constant 0.99, The discount factor determines the importance of future rewards. When set to 0, we will only consider immediate rewards and 1 will make algorithm take it in full
     discount_factor = 0.99
-
     #total reward initialized at 0
     total_reward = 0
-
     #initialization of reward list
     total_reward_list = []
-
     #training done set to false
     training_done = False
-
     #after which explore rate is bumped up
     gen_threshold = 1000
-
     #initially turn view off
     env1.set_view(False)
-
     #for each generation of the ai...
     for gen in range(NUM_GENS):
-        
         #turn on view at desired generation
         if gen == int(generation):
             print("view on")
             env1.set_view(True)
-
         #append current reward to the total reward list
         total_reward_list.append(total_reward)
-
         #reset the environment
         obv = env1.reset()
-
         #get the initial state of the program
         start_state = state_to_bucket1(obv)
-
         #initialize the total reward
-        total_reward1 = 0
-
+        total_reward = 0
         #bump explore rate up to 0.01 after reaching 1000 generations
         if gen >= gen_threshold:
             explore_rate = 0.01
-
         #for every time step an action is performed by the ai until either the time runs out, the ai completes the track, or crashes
         for t in range(MAX_T):
-
             #get action
             action = select_action1(start_state, 0.01)
 
             #step through the enivornment
             obv, reward, done, _ = env1.step(action)
 
-            #get  state
+            #get state
             state = state_to_bucket1(obv)
 
             #recall state
             env1.recall(start_state, action, reward, state, done)
 
             #update total reward
-            total_reward1 += reward
+            total_reward += reward
 
             # Update the Q based on the result
             top_q = np.amax(q_table1[state])
@@ -522,7 +494,7 @@ def simulate(generation):
             #if crashed, completed track or run out of time
             if done or t >= MAX_T - 1:
                 print("Generation %d finished after %i time steps with total reward = %f."
-                      % (gen, t, total_reward1))
+                      % (gen, t, total_reward))
                 if total_reward > 0:
                     #append score to leaderboard
                     leaderboard.append("gen: {} time: {}".format(gen + 5000,t))
@@ -535,6 +507,7 @@ def simulate(generation):
                     main()
                     #change generation back to 0 for training
                     change_gentotrainto(0,0)
+        print(state)
 
 
         #get new explore rates and learning rates
@@ -547,6 +520,11 @@ def simulate(generation):
 
 #used for loading q-tables saved prior, in the play mode
 def load_and_simulate(table):
+    #determine what generation we're at
+    if table == '15000_aft.npy':
+        additional = 15000
+    else:
+        additional = 10000
 
     #loading screen
 
@@ -619,7 +597,9 @@ def load_and_simulate(table):
                       % (gen, t, total_reward1))
 
                 if total_reward1 > 0: #completed track
-                    leaderboard.append("SennAI gen {}'s time: {}".format(gen + 5000,t))
+
+                    #gen + 5000/10000
+                    leaderboard.append("SennAI gen {}'s time: {}".format(gen + additional,t))
 
                     #display a win or lose screen
                     print("you lose")
@@ -639,7 +619,6 @@ def load_and_simulate(table):
 
                 if total_reward2 > 0: #completed track
                     leaderboard.append("Your time: {}".format(t))
-
                     #print sceens if the user wins or loses
                     print("you win")
                     img = pygame.image.load('winscreen.jpg') 
