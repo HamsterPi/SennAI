@@ -61,8 +61,8 @@ STATE_BOUNDS2 = list(zip(env2.obs_space2.low, env2.obs_space2.high))
 #at 10000 more consistent and faster
 #normal = '10000_aft.npy'
 
-easy = '10000_aft.npy'
-normal = '15000_aft.npy'
+easy = '5000_aft.npy'
+normal = '10000_aft.npy'
 
 #lowest explore rate will ever drop to
 MIN_EXPLORE_RATE = 0.001
@@ -521,8 +521,8 @@ def simulate(generation):
 #used for loading q-tables saved prior, in the play mode
 def load_and_simulate(table):
     #determine what generation we're at
-    if table == '15000_aft.npy':
-        additional = 15000
+    if table == '5000_aft.npy':
+        additional = 5000
     else:
         additional = 10000
 
